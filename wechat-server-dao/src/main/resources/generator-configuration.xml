@@ -38,8 +38,8 @@
 
         <!-- jdbc连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:8066/test_nexon?useUnicode=true&amp;characterEncoding=UTF-8"
-                        userId="root" password="123456" />
+                        connectionURL="jdbc:mysql://211.159.219.193:3306/test_nexon?useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="qlchat" password="7dRa0Khh" />
         <!-- 类型转换 -->
         <javaTypeResolver>
             <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
@@ -68,7 +68,7 @@
                selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
             <!-- 数据库表主键 -->
-            <generatedKey column="id_" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
 <!--            <domainObjectRenamingRule searchString="^Ql" replaceString=""/>-->
         </table>
         <table tableName="wechat_user_info"
@@ -79,7 +79,17 @@
                selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false" />
             <!-- 数据库表主键 -->
-            <generatedKey column="id_" sqlStatement="Mysql" identity="true" />
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        <table tableName="bili_user_follower"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false" />
+            <!-- 数据库表主键 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
         </table>
     </context>
 </generatorConfiguration>

@@ -70,4 +70,11 @@
     select id, mid, `following`, whisper, black, follower, gmt_create, gmt_modified
     from bili_user_follower
   </select>
+
+  <select id="listByTime" resultMap="BaseResultMap">
+    <!CDATA[[
+      select id, mid, `following`, whisper, black, follower, gmt_create, gmt_modified
+      from bili_user_follower where gmt_create>=#{starttime} and gmt_create<=#{endtime}
+    ]]>
+  </select>
 </mapper>

@@ -17,10 +17,50 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+
+        <wechat.server.gateway.version>1.0.0-SNAPSHOT</wechat.server.gateway.version>
+        <wechat.server.service.version>1.0.0-SNAPSHOT</wechat.server.service.version>
+        <wechat.server.dao.version>1.0.0-SNAPSHOT</wechat.server.dao.version>
+        <naxon.common.tool.component.version>1.0.0-SNAPSHOT</naxon.common.tool.component.version>
+        <naxon.http.tool.component.version>1.0.0-SNAPSHOT</naxon.http.tool.component.version>
+        <mybatis.plus.boot.starter.version>3.4.2</mybatis.plus.boot.starter.version>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis.plus.boot.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.naxon</groupId>
+            <artifactId>naxon-common-tool-component</artifactId>
+            <version>${naxon.common.tool.component.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.naxon</groupId>
+            <artifactId>naxon-http-tool-component</artifactId>
+            <version>${naxon.http.tool.component.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

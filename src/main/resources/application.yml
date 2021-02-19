@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:8066/test_nexon?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5
+      max-active: 10
+      min-idle: 5
+      max-wait: 3000
+      pool-prepared-statements: false
+      max-open-prepared-statements: -1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      max-evictable-idle-time-millis: 40000
+      filters: stat,wall
+      aop-patterns: com.nexon.dao.*
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: *.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: druid
+        login-password: druid
+        allow: 127.0.0.1
+        deny:

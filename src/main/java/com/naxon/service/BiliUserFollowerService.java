@@ -1,6 +1,7 @@
 package com.naxon.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.naxon.dao.entity.BiliUserFollower;
 import com.naxon.tool.common.JsonUtils;
 import com.naxon.tool.http.OkHttpExecutor;
@@ -60,9 +61,11 @@ public class BiliUserFollowerService {
      * 获取哔哩用户列表，根据时间查询
      * @param starttime
      * @param endtime
+     * @param pageNum
+     * @param pageSize
      * @return
      */
-    public List<BiliUserFollower> listByTime(Date starttime, Date endtime) {
+    public IPage listByTime(Date starttime, Date endtime, Integer pageNum, Integer pageSize) {
         return null;
     }
 }

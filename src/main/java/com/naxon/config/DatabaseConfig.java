@@ -20,4 +20,5 @@ public class DatabaseConfig {
     public DataSource dataSource() {
         return new DruidDataSource();
     }
+
 }

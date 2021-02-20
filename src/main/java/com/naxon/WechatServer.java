@@ -12,7 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.naxon.dao.mapper")
 public class WechatServer {
+
     public static void main(String[] args) {
         SpringApplication.run(WechatServer.class, args);
     }
+
 }

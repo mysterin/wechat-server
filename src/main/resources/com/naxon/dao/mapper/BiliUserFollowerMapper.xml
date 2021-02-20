@@ -32,11 +32,9 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into bili_user_follower (mid, `following`, whisper, 
-      black, follower, gmt_create, 
-      gmt_modified)
+      black, follower)
     values (#{mid,jdbcType=BIGINT}, #{following,jdbcType=BIGINT}, #{whisper,jdbcType=BIGINT}, 
-      #{black,jdbcType=BIGINT}, #{follower,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP})
+      #{black,jdbcType=BIGINT}, #{follower,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.naxon.dao.entity.BiliUserFollower">
     <!--
@@ -72,7 +70,7 @@
   </select>
 
   <select id="listByTime" resultMap="BaseResultMap">
-    <!CDATA[[
+    <![CDATA[
       select id, mid, `following`, whisper, black, follower, gmt_create, gmt_modified
       from bili_user_follower where gmt_create>=#{starttime} and gmt_create<=#{endtime}
     ]]>

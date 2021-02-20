@@ -38,8 +38,8 @@
 
         <!-- jdbc连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:8066/test_nexon?useUnicode=true&amp;characterEncoding=UTF-8"
-                        userId="root" password="123456" />
+                        connectionURL="jdbc:mysql://localhost:3306/test_nexon?useUnicode=true&amp;characterEncoding=UTF-8"
+                        userId="qlchat" password="7dRa0Khh" />
         <!-- 类型转换 -->
         <javaTypeResolver>
             <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->

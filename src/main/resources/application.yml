@@ -29,3 +29,7 @@ spring:
         login-password: druid
         allow: 127.0.0.1
         deny:
+application:
+  wechat:
+    token: naxon
+    aesKey:

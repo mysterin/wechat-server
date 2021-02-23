@@ -18,10 +18,12 @@
         <wechat.server.dao.version>1.0.0-SNAPSHOT</wechat.server.dao.version>
         <naxon.common.tool.component.version>1.0.0-SNAPSHOT</naxon.common.tool.component.version>
         <naxon.http.tool.component.version>1.0.0-SNAPSHOT</naxon.http.tool.component.version>
+        <naxon.wechat.tool.component.version>1.0.0-SNAPSHOT</naxon.wechat.tool.component.version>
         <mybatis.plus.boot.starter.version>3.4.2</mybatis.plus.boot.starter.version>
         <mysql.connector.java.version>5.1.46</mysql.connector.java.version>
         <druid.spring.boot.starter.version>1.2.5</druid.spring.boot.starter.version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -75,6 +77,11 @@
             <groupId>com.naxon</groupId>
             <artifactId>naxon-http-tool-component</artifactId>
             <version>${naxon.http.tool.component.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.naxon</groupId>
+            <artifactId>naxon-wechat-tool-component</artifactId>
+            <version>${naxon.wechat.tool.component.version}</version>
         </dependency>
     </dependencies>
 

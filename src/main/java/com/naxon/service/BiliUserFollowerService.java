@@ -3,16 +3,15 @@ package com.naxon.service;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.naxon.dao.entity.BiliUserFollower;
-import com.naxon.tool.common.JsonUtils;
-import com.naxon.tool.http.OkHttpExecutor;
 import com.naxon.dao.mapper.BiliUserFollowerMapper;
+import com.naxon.tool.common.JsonUtil;
+import com.naxon.tool.http.OkHttpExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author linxiaobin
@@ -39,9 +38,9 @@ public class BiliUserFollowerService {
         try {
             String url = MessageFormat.format(BILI_USER_FOLLOWER_URL, userId.toString());
             String response = okHttpExecutor.syncGet(url);
-            JSONObject json = JsonUtils.parseJson(response);
+            JSONObject json = JsonUtil.parseJson(response);
             String data = json.getString("data");
-            BiliUserFollower biliUserFollower = JsonUtils.parseJson(data, BiliUserFollower.class);
+            BiliUserFollower biliUserFollower = JsonUtil.parseJson(data, BiliUserFollower.class);
             return biliUserFollower;
         } catch (Exception e) {
             log.error("获取哔哩用户关注数异常", e);

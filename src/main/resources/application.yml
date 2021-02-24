@@ -1,3 +1,5 @@
+server:
+  port: 9090
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -32,4 +34,7 @@ spring:
 application:
   wechat:
     token: naxon
-    aesKey:
+    aesKey: uDtsDjE5Ddx2idzNBMTKNQ8e9tn45JM21whwmwSNaXe
+    ghId: gh_bd74d9636d92
+    appId: wxa130f378f17b1626
+    appSecret: cdb6c99e07c06a635affa476bd962a7d

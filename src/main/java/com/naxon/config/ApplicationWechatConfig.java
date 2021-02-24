@@ -15,4 +15,7 @@ import org.springframework.stereotype.Component;
 public class ApplicationWechatConfig {
     private String token;
     private String aesKey;
+    private String ghId;
+    private String appId;
+    private String appSecret;
 }

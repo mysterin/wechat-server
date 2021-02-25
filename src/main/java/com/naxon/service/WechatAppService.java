@@ -23,6 +23,7 @@ public class WechatAppService {
      */
     public String handle(WechatMsgModel wechatMsgModel) {
         String msgType = wechatMsgModel.getMsgType();
+        // 获取对应消息处理器
         WechatMsgHandler handler = wechatMsgHandlerFactory.getHandler(msgType);
         String response = handler.handle(wechatMsgModel);
         return response;

@@ -59,16 +59,15 @@ public class WechatServerController {
      * @return
      */
     @RequestMapping(value = "/receive", method = RequestMethod.POST)
-    public String doPost(String timestamp, String nonce, String encrypt_type, String msg_signature, @RequestBody String msg) {
+    public String doPost(String timestamp, String nonce, String encrypt_type, String msg_signature, @RequestBody String encryptMsg) {
         try {
             String token = applicationWechatConfig.getToken();
             String aesKey = applicationWechatConfig.getAesKey();
             String appId = applicationWechatConfig.getAppId();
-            WXBizMsgCrypt wxBizMsgCrypt = new WXBizMsgCrypt(token, aesKey, appId);
-            String decryptMsg = wxBizMsgCrypt.decryptMsg(msg_signature, timestamp, nonce, msg);
-            log.debug("timestamp={}, nonce={}, encrypt_type={}, msg_signature={}, decryptMsg={}", timestamp, nonce, encrypt_type, msg_signature, decryptMsg);
+            WechatMsgModel wechatMsgModel = WechatUtil.decryptMsg(appId, token, aesKey, msg_signature, timestamp, nonce, encryptMsg);
+            log.debug("timestamp={}, nonce={}, encrypt_type={}, msg_signature={}, decryptMsg={}", timestamp, nonce, encrypt_type, msg_signature, wechatMsgModel);
 
-            WechatMsgModel wechatMsgModel = WechatUtil.parseXmlMsg(decryptMsg);
+            // 处理消息
             String response = wechatAppService.handle(wechatMsgModel);
             log.debug("response={}", response);
             if (NaxonUtil.isNotEmpty(response)) {

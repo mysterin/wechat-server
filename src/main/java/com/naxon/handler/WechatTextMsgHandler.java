@@ -3,7 +3,6 @@ package com.naxon.handler;
 import com.naxon.tool.wechat.WechatUtil;
 import com.naxon.tool.wechat.constant.MsgType;
 import com.naxon.tool.wechat.model.WechatMsgModel;
-import com.naxon.tool.wechat.model.WechatReplayMsgModel;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

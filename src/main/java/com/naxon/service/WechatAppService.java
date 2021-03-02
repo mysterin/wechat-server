@@ -1,7 +1,7 @@
 package com.naxon.service;
 
-import com.naxon.handler.wechat.WechatMsgHandler;
-import com.naxon.handler.wechat.WechatMsgHandlerFactory;
+import com.naxon.handler.wechat.MsgTypeHandler;
+import com.naxon.handler.wechat.MsgTypeHandlerFactory;
 import com.naxon.tool.wechat.model.WechatMsgModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class WechatAppService {
 
     @Autowired
-    private WechatMsgHandlerFactory wechatMsgHandlerFactory;
+    private MsgTypeHandlerFactory msgTypeHandlerFactory;
 
     /**
      * 处理微信信息
@@ -26,12 +26,12 @@ public class WechatAppService {
     public String handle(WechatMsgModel wechatMsgModel) {
         String msgType = wechatMsgModel.getMsgType();
         // 获取对应消息处理器
-        WechatMsgHandler handler = wechatMsgHandlerFactory.getHandler(msgType);
-        if (handler == null) {
+        MsgTypeHandler msgTypeHandler = msgTypeHandlerFactory.getHandler(msgType);
+        if (msgTypeHandler == null) {
             log.info("没有该类型消息的处理器，msgType={}", msgType);
             return null;
         }
-        String response = handler.handle(wechatMsgModel);
+        String response = msgTypeHandler.handle(wechatMsgModel);
         return response;
     }
 

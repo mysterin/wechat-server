@@ -10,23 +10,23 @@ import java.util.Map;
 
 /**
  * @author linxiaobin
- * @Description
+ * @Description 消息类型处理器的注册工厂
  * @date 2021/2/24 18:03
  */
 @Component
-public class WechatMsgHandlerFactory {
+public class MsgTypeHandlerFactory {
 
-    private Map<MsgType, WechatMsgHandler> handlerMap = new HashMap<>();
+    private Map<MsgType, MsgTypeHandler> handlerMap = new HashMap<>();
 
     @Autowired
-    private WechatTextMsgHandler wechatTextMsgHandler;
+    private TextMsgTypeHandler wechatTextMsgHandler;
 
-    public WechatMsgHandler getHandler(String type) {
+    public MsgTypeHandler getHandler(String type) {
         MsgType msgType = MsgType.valueOf(type.toUpperCase());
         return handlerMap.get(msgType);
     }
 
-    public WechatMsgHandler getHandler(MsgType msgType) {
+    public MsgTypeHandler getHandler(MsgType msgType) {
         return handlerMap.get(msgType);
     }
 
@@ -35,7 +35,7 @@ public class WechatMsgHandlerFactory {
      * @param msgType
      * @param handler
      */
-    public void registerHandler(MsgType msgType, WechatMsgHandler handler) {
+    public void registerHandler(MsgType msgType, MsgTypeHandler handler) {
         Assert.notNull(msgType, "msgType 不可为空");
         handlerMap.put(msgType, handler);
     }

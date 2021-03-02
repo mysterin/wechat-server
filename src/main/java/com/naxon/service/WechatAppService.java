@@ -1,7 +1,7 @@
 package com.naxon.service;
 
-import com.naxon.handler.WechatMsgHandler;
-import com.naxon.handler.WechatMsgHandlerFactory;
+import com.naxon.handler.wechat.WechatMsgHandler;
+import com.naxon.handler.wechat.WechatMsgHandlerFactory;
 import com.naxon.tool.wechat.model.WechatMsgModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.naxon.handler;
+package com.naxon.handler.wechat;
 
-import com.naxon.tool.wechat.WechatUtil;
+import com.naxon.tool.wechat.WechatMsgUtil;
 import com.naxon.tool.wechat.constant.MsgType;
 import com.naxon.tool.wechat.model.WechatMsgModel;
 import org.springframework.beans.factory.InitializingBean;
@@ -37,7 +37,7 @@ public class WechatTextMsgHandler implements WechatMsgHandler, InitializingBean 
         String fromUserName = wechatMsgModel.getFromUserName();
         String toUserName = wechatMsgModel.getToUserName();
         String content = wechatMsgModel.getCreateTime();
-        String response = WechatUtil.replyText(fromUserName, toUserName, content);
+        String response = WechatMsgUtil.replyText(fromUserName, toUserName, content);
         return response;
     }
 

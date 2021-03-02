@@ -1,13 +1,10 @@
 package com.naxon.controller;
 
 import com.naxon.config.ApplicationWechatConfig;
-import com.naxon.handler.WechatMsgHandler;
-import com.naxon.handler.WechatMsgHandlerFactory;
 import com.naxon.service.WechatAppService;
 import com.naxon.tool.common.NaxonUtil;
-import com.naxon.tool.wechat.WechatUtil;
+import com.naxon.tool.wechat.WechatMsgUtil;
 import com.naxon.tool.wechat.aes.AesException;
-import com.naxon.tool.wechat.aes.WXBizMsgCrypt;
 import com.naxon.tool.wechat.model.WechatMsgModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +41,7 @@ public class WechatServerController {
         String token = applicationWechatConfig.getToken();
         try {
             log.debug("token={}, signature={}, timestamp={}, nonce={}, echostr={}", token, signature, timestamp, nonce, echostr);
-            boolean result = WechatUtil.checkSignature(token, signature, timestamp, nonce);
+            boolean result = WechatMsgUtil.checkSignature(token, signature, timestamp, nonce);
             if (result) {
                 return echostr;
             }
@@ -64,7 +61,7 @@ public class WechatServerController {
             String token = applicationWechatConfig.getToken();
             String aesKey = applicationWechatConfig.getAesKey();
             String appId = applicationWechatConfig.getAppId();
-            WechatMsgModel wechatMsgModel = WechatUtil.decryptMsg(appId, token, aesKey, msg_signature, timestamp, nonce, encryptMsg);
+            WechatMsgModel wechatMsgModel = WechatMsgUtil.decryptMsg(appId, token, aesKey, msg_signature, timestamp, nonce, encryptMsg);
             log.debug("timestamp={}, nonce={}, encrypt_type={}, msg_signature={}, decryptMsg={}", timestamp, nonce, encrypt_type, msg_signature, wechatMsgModel);
 
             // 处理消息

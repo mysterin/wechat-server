@@ -1,4 +1,4 @@
-package com.naxon.handler;
+package com.naxon.handler.wechat;
 
 import com.naxon.tool.wechat.constant.MsgType;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.naxon.handler.keyword;
+package com.naxon.handler.wechat.keyword;
 
 import com.naxon.tool.wechat.model.WechatMsgModel;
 import com.naxon.tool.wechat.model.WechatReplyMsgModel;

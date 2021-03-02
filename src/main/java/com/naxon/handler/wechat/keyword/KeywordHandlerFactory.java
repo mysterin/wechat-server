@@ -1,4 +1,4 @@
-package com.naxon.handler.keyword;
+package com.naxon.handler.wechat.keyword;
 
 import org.springframework.util.Assert;
 
